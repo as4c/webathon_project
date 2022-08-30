@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% load static %} 
+{% block content %}
+    <div class="product_list">
+        <h1 style="text-align: center; color: #053F5E; margin: 40px;">• • • My Ads • • •</h1>
+        <div class="product_list_container">
+            <table>
+                <tr>
+                    <td>
+                        <img class="my_ads_img" src="{% static 'mainapp/images/plus.png' %}" alt="Product image">
+                    </td>
+                    <td class="my_ads_product_detail_box">
+                        <h5 class="product_detail"><!--{{product.name}}-->Product name</h5>
+                        <h6 class="product_detail"><!--{{product.price}}-->₹0000</h6>
+                        <div class="product_detail"><!--{{product.seller_name.profile.contact_number}}-->Contact No: 9876543210</div>
+                    </td>
+                    <td>
+                        <input type="submit" class="bttn" value="Edit" style="width: 180px;">
+                        <input type="submit" class="bttn" value="Delete Product" style="width: 180px;">
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+{% endblock %}

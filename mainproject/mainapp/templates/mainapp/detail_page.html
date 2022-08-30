@@ -1,0 +1,29 @@
+{% extends 'mainapp/base.html' %}
+{% load static %} 
+{% block content %}
+    <div class="detail_page">
+        <h1 style="text-align: center; color: #053F5E; margin: 40px;">• • • Product Details • • •</h1>
+        <table>
+            <tr>
+                <td>
+                    <div class="product_img_box">
+                        <img class="product_img" src="{{product.image.url}}" alt="Product image">
+                    </div>
+                </td>
+                <td style="padding-left: 40px;">
+                    <div class="product_detail_box">
+                        <h5 class="product_detail"><!--{{product.name}}-->Product name</h5>
+                        <h6 class="product_detail"><!--{{product.price}}-->₹0000</h6>
+                        <p class="product_detail"><p><!--{{product.desc}}-->This is product description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptat Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat asperiores Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita beatae inventore perferendis quia obcaecati officiis commodi harum voluptates ducimus? Quis aliquid, cum doloremque laudantium at aperiam commodi magni reiciendis sunt quasi in repellat nobis error ex iusto dolorem rem quos nostrum! Tempora dolorum ipsum facilis, consectetur esse eos reprehenderit.</p></p>
+                        <p class="product_detail">Seller: <a href="{% url 'users:sellerprofile' product.seller_name.id %}"><!--{{product.seller_name}}-->Seller Name</a></p>
+                        <div class="product_detail"><!--{{product.seller_name.profile.contact_number}}-->Contact No: 9876543210</div>           
+                        <div class="product_detail">
+                            <input type="submit" class="bttn" id="checkout" value="Add to wishlist" style="width: 250px;">
+                            <input type="submit" class="bttn" id="checkout" value="Chat with seller" style="width: 250px;">
+                        </div>      
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

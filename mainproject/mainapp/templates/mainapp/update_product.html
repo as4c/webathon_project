@@ -1,0 +1,38 @@
+{% extends 'mainapp/base.html' %}
+{% load static %} 
+{% block content %}
+    <div class="update_product_container">
+        <div class="heading_img_box">
+            <img class="heading_img" src="{% static 'mainapp/images/update.png' %}" alt="Update Product">
+        </div>
+        
+        <form  action="" method="POST" enctype="multipart/form-data">
+            <!-- {% csrf_token %} -->
+            <div class="input">
+                <label >Product Name</label>
+                <input value="{{product.name}}" type="text" name="name" id="name" placeholder="iPhone">
+            </div>
+    
+            <div class="input">
+                <label>Product Price</label>
+                <input  value="{{product.price}}" type="text" name="price" id="name" placeholder="50000">
+            </div>
+    
+            <div class="input">
+                <label>Product Description</label>
+                <input value="{{product.desc}}" type="text" name="desc" id="name" placeholder="This is an iPhone">
+            </div>
+    
+            <div class="input">
+                <img class="w-20 h-20 " src="{{product.image.url}}" alt="">
+                <label for="">Product Image</label>
+                <input class="py-2 " type="file" accept="image/*" name="upload" id="upload">
+            </div>
+    
+            <div class="input">
+                <input type="submit" class="bttn" name="Update Product" id="" value="Update Product">
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'mainapp/base.html' %}
+{% load static %} 
+{% block content %}
+    <div class="add_product_container">
+        <div class="heading_img_box">
+            <img class="heading_img" src="{% static 'mainapp/images/add_product.png' %}" alt="Add Product">
+        </div>
+        <div class="input">
+            <label>Product Name :</label>
+            <input type="text" name="product_name" placeholder="Enter the product name here" required>
+        </div>
+        <div class="input">
+            <label>Brand :</label>
+            <input type="text" name="brand" placeholder="Enter the brand name here" required>
+        </div>
+        <div class="input">
+            <div class="sub_input">
+                <label>Category :</label>
+                <div class="select">
+                    <select>
+                        <option>Select Category</option>
+                        <optgroup label="Furniture">
+                            <option>Sofa & Dining</option>
+                            <option>Beds & Wardrobes</option>
+                            <option>Home Decor & Garden</option>
+                            <option>Kids Furniture</option>
+                            <option>Other Household Items</option>
+                        </option>
+                        <optgroup label="Bikes">
+                            <option>Motorcycles</option>
+                            <option>Scooters</option>
+                            <option>Bicycles</option>
+                        </option>
+                        <optgroup label="Electronics & Appliances">
+                            <option>TVs, Video - Audio</option>
+                            <option>Computers & Laptops</option>
+                            <option>Cameras & Lenses</option>
+                            <option>Games & Entertainment</option>
+                            <option>Computer Accessories</option>
+                        </option>
+                        <optgroup label="Books, Sports & Hobbies">
+                            <option>Books</option>
+                            <option>Gym & Fitness</option>
+                            <option>Musical Instruments</option>
+                            <option>Sports Equipment</option>
+                            <option>Other Hobbies</option>
+                        </option>
+                        <optgroup label="Fashion">
+                            <option>Men</option>
+                            <option>Women</option>
+                            <option>Kids</option>
+                        </option>
+                        <optgroup label="Others">
+                            <option>Others</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+            <div class="sub_input">
+                <label>Product Image :</label>
+                <input type="file" name="product_image"required>
+            </div>
+        </div>
+        <div class="input">
+            <label>Product Description :</label>
+            <textarea name="product_description" placeholder="Enter product description here" required rows="5"></textarea>
+        </div>
+        <div class="input">
+            <input type="submit" value="Sell" class="bttn">
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop&Sell</title>
+
+    <!--CSS linker-->
+    <link rel="stylesheet" href="{% static 'mainapp/styles.css'  %}">
+
+    <!--Favicon linker-->
+    <link rel="icon" href="favicon.ico">
+
+    <!--Goggle fonts CDN-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <!--FontAwesome CDN-->
+    <script src="https://kit.fontawesome.com/9672772db5.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <a class="navbar-brand" href="#"><img class="brand_logo" src="{% static 'mainapp/images/brand_logo.png' %}" alt="Shop&Sell"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="search_box mr-auto">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="search_bar" type="search" placeholder="Find books, cycles, furnitures and more" aria-label="Search">
+                <button class="search_button" type="submit"><img class="search_button_icon" src="{% static 'mainapp/images/search.png' %}" alt="Search"></button>
+              </form>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class=" category_link">
+            <a class="nav-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Category</a>
+          </div>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link home" href="{%  url 'mainapp:homepage' %}"><img class="nav_img" style="width: 15px;" src="{% static 'mainapp/images/home.png' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{%  url 'mainapp:homepage' %}"><img class="nav_img" src="{% static 'mainapp/images/user.png' %}">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%  url 'mainapp:homepage' %}"><img class="nav_img" src="{% static 'mainapp/images/wishlist.png' %}">Wishlist</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%  url 'users:logout' %}"><img class="nav_img" style="width: 25px;" src="{% static 'mainapp/images/logout.png' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><img class="nav_img" style="width: 20px;" src="{% static 'mainapp/images/chat.png' %}">Chat</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{%  url 'users:register' %}"><img class="nav_img" style="width: 20px;" src="{% static 'mainapp/images/register.png' %}">register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%  url 'users:login' %}"><img class="nav_img" src="{% static 'mainapp/images/login.png' %}">Login</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{%  url 'mainapp:add_product' %}"><img class="nav_img" src="{% static 'mainapp/images/plus.png' %}">Sell</a>
+            </li>
+            {% endif %}
+            
+          </ul>
+        </div>
+    </nav>
+    <div class="category_nav">
+        <div class="sub_category collapse" id="collapseExample">
+            <table style="margin: auto;">
+                <tr style="color: #fff;">
+                    <th>Furniture</th>
+                    <th>Bikes</th>
+                    <th>Electronics & Appliances</th>
+                    <th>Books, Sports & Hobbies</th>
+                    <th>Fashion</th>
+                </tr>
+                <tr>
+                    <td><a href="#">Sofa & Dining</a></td>
+                    <td><a href="#">Motorcycles</a></td>
+                    <td><a href="#">TVs, Video - Audio</a></td>
+                    <td><a href="#">Books</a></td>
+                    <td><a href="#">Men</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Beds & Wardrobes</a></td>
+                    <td><a href="#">Scooters</a></td>
+                    <td><a href="#">Computers & Laptops</a></td>
+                    <td><a href="#">Gym & Fitness</a></td>
+                    <td><a href="#">Women</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Home Decor & Garden</a></td>
+                    <td><a href="#">Bicycles</a></td>
+                    <td><a href="#">Cameras & Lenses</a></td>
+                    <td><a href="#">Musical Instruments</a></td>
+                    <td><a href="#">Kids</a></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Kids Furniture</a></td>
+                    <td></td>
+                    <td><a href="#">Games & Entertainment</a></td>
+                    <td><a href="#">Sports Equipment</a></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><a href="#">Other Household Items</a></td>
+                    <td></td>
+                    <td><a href="#">Computer Accessories</a></td>
+                    <td><a href="#">Other Hobbies</a></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+<footer class="foot">
+    <div class="foot_container">
+        <table style="margin: auto;">
+            <tr>
+                <th>ABOUT US</th>
+                <th>SUPPORT</th>
+                <th>FOLLOW US</th>
+            </tr>
+            <tr>
+                <td><a href="#">Shop&Sell Services</a></td>
+                <td><a href="#">Help</a></td>
+                <td>
+                    <a href="#"><img class="footer_img" style="margin-right: 10px;" src="{% static 'mainapp/images/facebook.png' %}"></a>
+                    <a href="#"><img class="footer_img" style="margin-right: 10px;" src="{% static 'mainapp/images/instagram.png' %}"></a>
+                    <a href="#"><img class="footer_img" src="{% static 'mainapp/images/twitter.png' %}"></a>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#">Shop&Sell People</a></td>
+                <td><a href="#">Contact Us</a></td>
+            </tr>
+            <tr>
+                <td><a href="#">Terms & Condition</a></td>
+            </tr>
+        </table>
+    </div>
+    <p style="color: lightgrey; text-align: center;">&#169; HardCoder</p>
+</footer>
+</html>
